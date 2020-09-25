@@ -1,12 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
 import Car from './car'
 import Speed from './speed'
 
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import {Power1, Linear} from 'gsap'
+import {Power1} from 'gsap'
 
 function App() {
   let slides_container = useRef(null)
