@@ -1,38 +1,314 @@
-.App {
-  text-align: center;
+/* @tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import "../node_modules/tailwindcss/base.css";
+
+@import "../node_modules/tailwindcss/components.css";
+
+@import "../node_modules/tailwindcss/utilities.css"; */
+
+@font-face {
+  font-family: "AbrilFatface";
+  src: url(fonts/AbrilFatface-Regular.ttf)
 }
 
-.App-logo {
-  height: 40vmin;
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url(fonts/PlayfairDisplay-VariableFont_wght.ttf)
+}
+
+html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+}
+
+h1 {
+  font-size: 5rem;
+  font-family: "AbrilFatface";
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+p {
+  font-family: "PlayfairDisplay";
+  font-weight: 300;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #FF4F40;
+}
+
+.car {
+  animation: 1.5s ease-in 0s 1 car-fade;
+  position: relative;
+  z-index: 5;
+}
+
+canvas {
+  position: fixed;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes car-fade {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.slides {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: nowrap;
+  visibility: hidden;
+}
+
+.slide {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.slide-inner {
+  display: flex;
+  position: absolute;
+  color: #fff;
+  height: 100%;
+  z-index: 6;
+  width: 90vw;
+}
+
+/*Slide 1*/
+#slide1.slide {
+  justify-content: start;
+}
+#slide1 .slide-inner {
+  width: 45vw;
+  margin-left: 5vw;
+  color: #323232;
+}
+
+#slide1 h1 {
+  display: flex;
+  font-size: 7rem;
+  line-height: 125px;
+}
+
+#slide1 hr {
+  border-color: #323232;
+  max-width: 100%;
+  margin: 0;
+  border-style: dashed;
+}
+
+#slide1 h2 {
+  font-size: 30px;
+  margin-bottom: -20px;
+}
+#slide1 .title {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+}
+.credits {
+  position: absolute;
+  bottom: 20px;
+}
+.credits p {
+  font-size: 16px;
+  font-weight: 100;
+  color: #8a8a8a;
 }
 
-.App-link {
-  color: #61dafb;
+/*Slide 2*/
+#slide2 {
+  background: #39396b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#slide2 .slide-inner {
+  justify-content: start;
+  align-items: start;
+  flex-flow: column wrap;
+}
+
+#slide2 h1 {
+  opacity: 0;
+  margin-bottom: -15px;
+}
+
+#slide2 p {
+  opacity: 0;
+}
+
+#slide2 button {
+  height: 30px;
+  width: 110px;
+}
+
+
+/*Slide 3*/
+#slide3 .slide-inner {
+  color: #323232;
+  justify-content: flex-end;
+  align-items: center;
+  flex-flow: column wrap;
+  opacity: 0;
+}
+#slide3 p {
+  margin-bottom: 7.5%;
+}
+
+/*Slide 4*/
+#slide4 {
+  background: #c46685;
+}
+#slide4 .slide-inner {
+  flex-flow: column wrap;
+  justify-content: center;
+}
+#slide4 #left {
+  justify-self: flex-start;
+  align-self: flex-start;
+  position: absolute;
+  left: -5vw;
+  top: 40%;
+}
+#particles canvas {
+  height: 20%!important;
+  width: 200vw!important;
+}
+#slide4 #right {
+  align-self: flex-end;
+  position: absolute;
+  text-align: right;
+}
+#slide4 h1 {
+  width: 30vw;
+}
+
+/*Slide 5*/
+#slide5 {
+  background: #ffc14f;
+  opacity: 0;
+}
+
+#slide5 .slide-inner {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  z-index: 10;
+  text-align: center;
+}
+.cta {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-flow: column wrap;
+}
+#slide5 .button {
+  width: 200px;
+  height: 60px;
+  background: none;
+  border: solid #fff;
+  transition: background .3s, color .3s;
+}
+#slide5 a.button {
+  font-size: 3rem;
+  font-family: "AbrilFatFace";
+  color: #fff;
+  line-height: 3.5rem;
+  text-align: center;
+}
+#slide5 .button:hover {
+  background: #fff;
+  color: #ffc14f;
+  cursor: pointer;
+}
+
+.mob-text {
+  display: none;
+}
+
+@media only screen and (max-width: 512px) {
+  h1 {
+    font-size: 3rem;
   }
-  to {
-    transform: rotate(360deg);
+  p {
+    font-size: 20px;
+  }
+  #slide1 .slide-inner {
+    width: 60vw;
+  }
+  #slide1 h1 {
+    font-size: 5.5rem;
+    line-height: 6rem;
+  }
+  #slide1 p {
+    font-size: 1.2rem;
+  }
+  #slide1 .credits {
+    width: 90vw;
+  }
+  #slide1 .credits p {
+    text-align: center;
+    font-size: .8rem;
+  }
+
+  #slide4 .slide-inner {
+    justify-content: flex-start;
+  }
+  #slide4 h1 {
+    width: auto;
+  }
+
+  .mob-text {
+    display: block;
+    background: #FF4F40;
+    position: absolute;
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    bottom: 30%;
+    animation: float 1s alternate infinite;
+  }
+  @keyframes float {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
