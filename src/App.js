@@ -6,6 +6,7 @@ import Speed from './speed'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {Power1} from 'gsap'
+import { Box2 } from 'three';
 
 function App() {
   let slides_container = useRef(null)
@@ -27,6 +28,8 @@ function App() {
 
   let slide5_content = useRef(null)
 
+  let colorLogo = useRef(null)
+
   if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger); 
   }
@@ -40,6 +43,18 @@ function App() {
   useEffect(() => {
     gsap.to(slides_container, {duration: 0, css: {visibility: "visible"}})
     // Animation jizz
+
+    gsap.fromTo(colorLogo, {
+      color: function(index, target, targets) {
+        return "hsl(" + ((index / targets.length) * 360) + ", 100%, 80%)";
+      }
+    },{
+      color: "hsl(+=360, +=0%, +=0%)",
+      duration: 4,
+      repeat: -1,
+      ease: "none"
+    });
+
     let slides = gsap.utils.toArray(".slide")
 
     let slide = new gsap.timeline()
@@ -84,7 +99,6 @@ function App() {
     gsap.fromTo(slide1_title, {x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .6})
     gsap.to(slide1_line, {width: "100%", delay: .6})
     gsap.fromTo(slide1_caption, {y: -15, opacity: 0}, {y: 0, opacity: 1, delay: 1.6})
-    
     slide_anim.to(slide1_content, {opacity: 0, x: "-100%", scrollTrigger: {
       trigger: "#slide1",
       start: "+=10",
@@ -106,7 +120,6 @@ function App() {
       start: "+=1000",
       scrub: 1,
     }}, "slide2")
-
     // Slide 3
     slide_anim.to(slide3_inner, {opacity: 1, scrollTrigger: {
       trigger: "#slide3",
@@ -187,14 +200,20 @@ function App() {
               <small>"Today" but smaller</small>
             </div>
             <div className="cta">
-              <a className="button" href="#">BUY</a>
+              <a className="button" href="https://www.youtube.com/watch?v=LErgmHmPLmw">BUY</a>
             </div>
-            <div />
-            <div />
+            <div/>
+            <div/>
           </div>
         </section>
       </div>
-      
+      {/* <div id="rc">
+        <h1 id="colorful" ref={el => {colorLogo = el}}>8</h1>
+        <div class="newlogo">
+          <h1>CR</h1>
+          <h1>E⠀</h1>
+        </div>
+      </div> */}
     </>
   );
 }

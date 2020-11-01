@@ -20,6 +20,11 @@
   src: url(fonts/PlayfairDisplay-VariableFont_wght.ttf)
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url(fonts/Inter-Bold.woff)
+}
+
 html,
 body {
   margin: 0;
@@ -311,4 +316,34 @@ canvas {
       opacity: 1;
     }
   }
+}
+
+
+#rc {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newlogo {
+  height: 1024px;
+  width: 1024px;
+  text-align: center;
+}
+.newlogo h1 {
+  font-family: "Inter";
+  line-height: 320px;
+  color: #232323;
+  font-size: 400px;
+}
+#colorful {
+  margin-top: -395px;
+  margin-right: -770px;
+  transform: rotateZ(-45deg)
+}
+h1#colorful {
+  font-size: 830px;
+  font-family: "Inter";
+  z-index: -1;
 }
