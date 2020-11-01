@@ -28,7 +28,7 @@ function App() {
 
   let slide5_content = useRef(null)
 
-  let colorLogo = useRef(null)
+  //let colorLogo = useRef(null)
 
   if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger); 
@@ -44,7 +44,7 @@ function App() {
     gsap.to(slides_container, {duration: 0, css: {visibility: "visible"}})
     // Animation jizz
 
-    gsap.fromTo(colorLogo, {
+    /* gsap.fromTo(colorLogo, {
       color: function(index, target, targets) {
         return "hsl(" + ((index / targets.length) * 360) + ", 100%, 80%)";
       }
@@ -53,7 +53,7 @@ function App() {
       duration: 4,
       repeat: -1,
       ease: "none"
-    });
+    }); */
 
     let slides = gsap.utils.toArray(".slide")
 
