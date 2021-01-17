@@ -91,9 +91,9 @@ function Car() {
                 }
             }
         }*/
-        let rand = function(min, max) {
+        /*let rand = function(min, max) {
             return (Math.random() * (max - min))
-        }
+        }*/
 
         function animate() {
             requestAnimationFrame( animate );
