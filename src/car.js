@@ -84,13 +84,13 @@ function Car() {
             .to(scene.rotation, {x: .035, y: -1.575, duration: 4}, "slide4")
         // Slide 5
             .to(camera.position, {x: .015, z: 0.09, y: 0.65, duration: 4}, "slide5")
-        let vrrr = (bool) => {
+        /*let vrrr = (bool) => {
             if (bool === true) {
                 for(let i = 0; i < 10; i++) {
                     scene.position.set(0,rand(-.005, .01), 0)
                 }
             }
-        }
+        }*/
         let rand = function(min, max) {
             return (Math.random() * (max - min))
         }

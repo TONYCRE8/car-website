@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {tsParticles, tsparticles} from 'tsparticles'
+import {tsParticles} from 'tsparticles'
 import rect from "./rect.svg"
 
 const options = {

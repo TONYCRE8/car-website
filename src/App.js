@@ -6,7 +6,6 @@ import Speed from './speed'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {Power1} from 'gsap'
-import { Box2 } from 'three';
 
 function App() {
   let slides_container = useRef(null)
@@ -34,11 +33,11 @@ function App() {
     gsap.registerPlugin(ScrollTrigger); 
   }
 
-  let [vroom, setVroom] = useState(false);
+  // let [vroom, setVroom] = useState(false);
 
-  const vroomToggle = () => {
+  /*const vroomToggle = () => {
     // How?
-  }
+  }*/
 
   useEffect(() => {
     gsap.to(slides_container, {duration: 0, css: {visibility: "visible"}})
